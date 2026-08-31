@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+
+
+}
+
+
+.centro {
+    background-color: white;
+    width: fit-content;
+
+}
+
+button {
+    width: 70px;
+    height: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(black, yellow);
+}
