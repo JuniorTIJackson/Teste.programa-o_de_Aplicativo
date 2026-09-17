@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: #fefdfb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contêiner principal (Caixa branca) */
+.Central {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #d4e2f6;
+    border-top: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    margin-top: 35px; /* Espaço para a barra superior criada via CSS */
+}
+
+/* 1. MÁGICA DO CSS: Criando a barra superior azul e o Título */
+.Central::before {
+    content: "Sistema Escolar - 2026";
+    position: absolute;
+    top: -35px; /* Joga a barra para cima do container */
+    left: -1px;
+    right: -1px;
+    height: 35px;
+    background-color: #2a67a6;
+    border-radius: 8px 8px 0 0;
+    
+    /* Estilizando o texto que vai cair abaixo da barra */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: -50px;
+    color: #0b2545;
+    font-size: 26px;
+    font-weight: 800;
+    padding-top: 60px; /* Empurra o texto para a área branca */
+    pointer-events: none;
+}
+
+/* 2. MÁGICA DO CSS: Criando os 3 botões estilo macOS (Vermelho, Amarelo, Verde) */
+.Central::after {
+    content: "";
+    position: absolute;
+    top: -23px;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f56; /* Bolinha Vermelha */
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* Bolinhas Amarela e Verde */
+}
+
+/* Inputs de nota */
+input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d4e2f6;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #0b2545;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-top: 40px; /* Compensa o espaço do título gerado no ::before */
+}
+
+/* Remove a margem extra do 2º e 3º input */
+input[type="text"] ~ input[type="text"] {
+    margin-top: 0;
+}
+
+input[type="text"]:focus {
+    border-color: #1e68c8;
+}
+
+input::placeholder {
+    color: #8c9eb5;
+    font-weight: 500;
+}
+
+/* Botão Calcular (Atualizado para o ID #bt) */
+button#bt {
+    background-color: #1e68c8;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s;
+}
+
+button#bt:hover {
+    background-color: #1555a5;
+}
+
+/* Estilização conjunta dos spans de resultado */
+span#media, span#Situacao {
+    background-color: #f0f5fe;
+    padding: 10px 20px;
+    text-align: center;
+    color: #0b2545;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    border-left: 1px solid #d4e2f6;
+    border-right: 1px solid #d4e2f6;
+}
+
+/* Arredonda o topo da caixa de média */
+span#media {
+    border-top: 1px solid #d4e2f6;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Arredonda o fundo da caixa de situação */
+span#Situacao {
+    border-bottom: 1px solid #d4e2f6;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Oculta os spans se estiverem vazios (antes do cálculo) */
+span#media:empty, span#Situacao:empty {
+    display: none;
+}
